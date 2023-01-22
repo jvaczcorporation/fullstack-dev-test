@@ -36,12 +36,12 @@ export const insertDataWorldCities = functions.https.onRequest(async (request, r
 
     for (var country in groupedByCountry) {
 
-        var listWorldCiy: WorldCity[] = groupedByCountry[country]
+        var listWorldCity: WorldCity[] = groupedByCountry[country]
         const docRefCountry = firestore.collection("countries").doc();
 
         docRefCountry.set({ name: country });
 
-        for (var worldCity of listWorldCiy) {
+        for (var worldCity of listWorldCity) {
             const docRefCity = docRefCountry.collection("cities").doc();
             docRefCity.set(
                 {
